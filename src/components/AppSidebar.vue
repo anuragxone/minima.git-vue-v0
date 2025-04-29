@@ -15,6 +15,7 @@ import {
   type SidebarProps,
   SidebarRail,
 } from '@/components/ui/sidebar'
+import DarkModeToggle from './DarkModeToggle.vue'
 
 const props = defineProps<SidebarProps>()
 
@@ -154,10 +155,10 @@ const data = {
 <template>
   <Sidebar v-bind="props">
     <SidebarHeader>
-      <VersionSwitcher
-        :versions="data.versions"
-        :default-version="data.versions[0]"
-      />
+      <div class="flex flex-row items-center justify-between content-evenly justify-center">
+        <VersionSwitcher :versions="data.versions" :default-version="data.versions[0]" />
+        <DarkModeToggle />
+      </div>
       <SearchForm />
     </SidebarHeader>
     <SidebarContent>
